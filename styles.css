@@ -31,6 +31,9 @@ img.map {
 
 .navbar-brand {
   background-image: url('img/Skyjack_LOGO.png');
+  background-size: contain;
+  width: 150px;
+  margin: 15px;
 }
 
 .vex {
