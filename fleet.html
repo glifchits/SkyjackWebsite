@@ -1,0 +1,115 @@
+<!doctype html>
+<html>
+  <head>
+    <link href='css/bootstrap.min.css' rel='stylesheet' type='text/css'>
+    <link href='css/font-awesome.min.css' rel='stylesheet' type='text/css'>
+    <script src='js/jquery.min.js'></script>
+    <script src='js/bootstrap.min.js'></script>
+    <script src="vex/vex.combined.min.js"></script>
+    <script>vex.defaultOptions.className = 'vex-theme-os';</script>
+    <link rel="stylesheet" href="vex/vex.css" />
+    <link rel="stylesheet" href="vex/vex-theme-os.css" />
+    <link href='styles.css' rel='stylesheet' type='text/css'>
+    <style>
+      .fa.good { color: green; }
+      .fa.bad { color: red; }
+      .fa.warn { color: gold; }
+      span {
+        padding: 5px;
+        font-weight: bold;
+        color: white;
+      }
+      span.good { background-color: green; }
+      span.bad { background-color: red; }
+      span.warn { background-color: gold; }
+    </style>
+  </head>
+  <body>
+    <div class="navbar navbar-inverse navbar-fixed-top">
+      <div class="container">
+        <div class="navbar-header">
+          <a class="navbar-brand" href="index.html">Skyjack</a>
+        </div>
+        <div class="collapse navbar-collapse">
+          <ul class="nav navbar-nav">
+            <li><a href="index.html">Home</a></li>
+            <li class='active'><a href="fleet.html">Fleet</a></li>
+            <li><a href="machine.html">Machine</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class='container'>
+      <table class='table'>
+        <tr>
+          <th>Machine ID</th>
+          <th>Type</th>
+          <th>Status</th>
+          <th>Location</th>
+          <th>Last updated</th>
+          <th>Alert</th>
+        </tr>
+      </table>
+    </div>
+
+    <script>
+      function randomString(length, chars) {
+        var result = '';
+        for (var i = length; i > 0; --i) result += chars[Math.round(Math.random() * (chars.length - 1))];
+        return result;
+      }
+
+      var machineType = {};
+      machineType[0] = 'Scissor Lift';
+      machineType[1] = 'Boom Lift';
+      machineType[2] = 'Telehandler';
+
+      for (var i = 0; i<100; i++) {
+        var newRow = '';
+        var rand = Math.random();
+
+        for (var k = 0; k<=5; k++) {
+          newRow += '<td>';
+
+          if (k === 0) {
+            //machineId
+            newRow += randomString(2, '0123456789')+'-'+randomString(5, '0123456789');
+          } else if (k === 1) {
+            newRow += machineType[Math.round(Math.random()*2)];
+          } else if (k === 2) {
+            //statusicon
+            if (rand > 0.4) {
+              newRow += '<i class="good fa fa-thumbs-up"></i>';
+            } else if (rand > 0.34) {
+              newRow += '<i class="bad fa fa-times"></i>';
+            } else {
+              newRow += '<i class="warn fa fa-exclamation-triangle"></i>';
+            };
+          } else if (k === 3) {
+            // location
+            // 43.558898, -80.270638
+            newRow +=  (43 + (Math.random() * 3) - 1.5).toString().substring(0, 9);
+            newRow += ', ';
+            newRow += (-80 + (Math.random() * 3) - 1.5).toString().substring(0, 10);
+          } else if (k === 4) {
+            // last updated
+            newRow += new Date(new Date() - (Math.random() * 25000000000));
+          } else {
+            // alert
+            if (rand > 0.4) {
+              newRow += '<span class="good">Machine is operational</span>';
+            } else if (rand > 0.34) {
+              newRow += '<span class="bad">Equipment fault</span>';
+            } else {
+              newRow += '<span class="warn">Ignition off</span>';
+            };
+          };
+
+          newRow += '</td>';
+        };
+        $('table').append("<tr>"+newRow+"</tr>");	
+      };
+    </script>
+  </body>
+</html>

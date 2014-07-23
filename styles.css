@@ -1,0 +1,38 @@
+body {
+  padding-top: 50px;
+}
+.starter-template {
+  padding: 40px 15px;
+  text-align: center;
+}
+
+div.map {
+  width: 100%;
+  position: relative;
+}
+
+img.map {
+  width: 100%;
+}
+
+.pin {
+  display: block;
+  width: 20px;
+  height: 20px;
+  background-color: #ea2f0c;
+  border-radius: 50%;
+  position: absolute;
+}
+
+#pin1 {	top: 70px; left: 310px; }
+#pin2 {	top: 140px; left: 316px; }
+#pin3 {	top: 200px; left: 290px; }
+#pin4 {	top: 65px; left: 140px; }
+
+.navbar-brand {
+  background-image: url('img/Skyjack_LOGO.png');
+}
+
+.vex {
+  padding: 10% 25%;
+}
