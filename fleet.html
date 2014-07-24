@@ -51,13 +51,28 @@
           <th>Last updated</th>
           <th>Alert</th>
         </tr>
+        <tr>
+          <td>
+            <a href="machine.html">95-22512</a>
+          </td>
+          <td>Telehandler</td>
+          <td>
+            <i class="good fa fa-thumbs-up"></i>
+          </td>
+          <td>43.558898, -80.270638</td>
+          <td>Thu Jul 24 2014 8:42:00 GMT-0400 (EDT)</td>
+          <td>
+            <span class="good">Machine is operational</span>
+          </td>
+        </tr>
       </table>
     </div>
 
     <script>
       function randomString(length, chars) {
         var result = '';
-        for (var i = length; i > 0; --i) result += chars[Math.round(Math.random() * (chars.length - 1))];
+        for (var i = length; i > 0; --i)
+          result += chars[Math.round(Math.random() * (chars.length - 1))];
         return result;
       }
 
@@ -75,7 +90,7 @@
 
           if (k === 0) {
             //machineId
-            newRow += randomString(2, '0123456789')+'-'+randomString(5, '0123456789');
+            newRow += "<a href='#'>" + randomString(2, '0123456789')+'-'+randomString(5, '0123456789') + "</a>";
           } else if (k === 1) {
             newRow += machineType[Math.round(Math.random()*2)];
           } else if (k === 2) {
@@ -109,7 +124,7 @@
 
           newRow += '</td>';
         };
-        $('table').append("<tr>"+newRow+"</tr>");	
+        $('table').append("<tr>"+newRow+"</tr>");
       };
     </script>
   </body>
