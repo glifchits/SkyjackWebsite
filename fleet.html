@@ -60,7 +60,7 @@
             <i class="good fa fa-thumbs-up"></i>
           </td>
           <td>43.558898, -80.270638</td>
-          <td>Thu Jul 24 2014 8:42:00 GMT-0400 (EDT)</td>
+          <td>Fri, 25 Jul 2014 10:13:21 GMT</td>
           <td>
             <span class="good">Machine is operational</span>
           </td>
@@ -110,7 +110,7 @@
             newRow += (-80 + (Math.random() * 3) - 1.5).toString().substring(0, 10);
           } else if (k === 4) {
             // last updated
-            newRow += new Date(new Date() - (Math.random() * 25000000000));
+            newRow += new Date(new Date() - (Math.random() * 25000000000)).toGMTString();
           } else {
             // alert
             if (rand > 0.4) {
